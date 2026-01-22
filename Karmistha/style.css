@@ -1,0 +1,253 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ---------- PAGE 1 ---------- */
+.page1 {
+  height: 100vh;
+  background: url('main.png') no-repeat center/contain;
+  background-color: black;
+  position: relative;
+}
+
+.continue-btn {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 35px;
+  background: gold;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 25px;
+  box-shadow: 0 0 15px gold;
+  transition: 0.3s;
+}
+
+.continue-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ---------- PAGE 2 ---------- */
+.page2 {
+  min-height: 100vh;
+  background:
+    url("https://www.transparenttextures.com/patterns/asfalt-light.png"),
+    linear-gradient(135deg, #5a0000, #8b0000);
+  text-align: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+.title {
+  color: gold;
+  font-size: 46px;
+  margin-bottom: 90px;
+  text-shadow: 0 0 12px gold;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 90px;
+}
+
+/* ---------- FLIP PHOTO CARDS ---------- */
+
+.photo-box {
+  display: flex;
+  justify-content: center;
+}
+
+/* invisible container */
+.photo-card {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.photo-card.active .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 2px solid gold;
+  backface-visibility: hidden;
+}
+
+/* FRONT */
+.card-front {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gold;
+  font-size: 20px;
+  text-shadow: 0 0 12px gold;
+  box-shadow: 0 0 18px gold;
+}
+/* Camera icon */
+.camera {
+  font-size: 42px;
+  margin-bottom: 10px;
+  display: inline-block;
+  animation: floatCamera 2.5s ease-in-out infinite;
+}
+
+@keyframes floatCamera {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Click text under camera */
+.card-front {
+  flex-direction: column;
+}
+
+.card-front::after {
+  content: "Click to View";
+}
+
+/* BACK */
+.card-back {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 15px;
+  font-size: 20px;
+  color:   #FFD700;
+  text-shadow: 0 0 15px black;
+  transform: rotateY(180deg);
+  box-shadow: 0 0 30px gold;
+}
+
+/* IMAGE BINDING */
+.photo-box:nth-child(1) .card-back { background-image: url('img1.jpg'); }
+.photo-box:nth-child(2) .card-back { background-image: url('img2.jpg'); }
+.photo-box:nth-child(3) .card-back { background-image: url('img3.jpeg'); }
+.photo-box:nth-child(4) .card-back { background-image: url('img4.jpeg'); }
+.photo-box:nth-child(5) .card-back { background-image: url('img5.jpeg'); }
+
+/* BUTTON */
+.message-btn {
+  padding: 13px 30px;
+  background: gold;
+  color: black;
+  text-decoration: none;
+  font-size: 22px;
+  border-radius: 30px;
+  box-shadow: 0 0 15px gold;
+  transition: 0.3s;
+}
+
+.message-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- PAGE 3 ---------- */
+.page3 {
+  height: 100vh;
+  background:
+    url("https://www.transparenttextures.com/patterns/asfalt-light.png"),
+    linear-gradient(135deg, #6b0000, #9b0000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.message-box {
+  background: rgba(0,0,0,0.65);
+  padding: 60px 40px;
+  border-radius: 30px;
+  color: gold;
+  width: 38%;
+  min-height: 65%;
+  text-align: center;
+  box-shadow: 0 0 30px gold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.message-box h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.message-box p {
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* RESTART BUTTON */
+.restart-btn {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 50px;
+  background: gold;
+  color: black;
+  text-decoration: none;
+  font-size: 22px;
+  border-radius: 30px;
+  box-shadow: 0 0 22px gold;
+  transition: 0.3s;
+}
+
+.restart-btn:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* ---------- HEARTS ---------- */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  color: rgba(255, 215, 0, 0.9);
+  font-size: 26px;
+  animation: float 4s linear infinite;
+  text-shadow: 0 0 10px gold;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.8);
+    opacity: 0;
+  }
+}
